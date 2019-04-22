@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.embed.swing.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<BorderPane prefHeight="720.0" prefWidth="1280.0" styleClass="root" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.vista.controllersFx.ParcelesController">
+    <top>
+        <HBox prefHeight="40.0" prefWidth="305.0" styleClass="navbar" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="home" mnemonicParsing="false" onAction="#canviarEscenaAction" prefHeight="40.0" prefWidth="152.0" styleClass="buttonNavbar" text="Home">
+                    <font>
+                        <Font name="Montserrat Light" size="20.0" />
+                    </font>
+                </Button>
+                <Button fx:id="animals" mnemonicParsing="false" onAction="#canviarEscenaAction" prefHeight="40.0" prefWidth="152.0" styleClass="buttonNavbar" text="Animals">
+                    <font>
+                        <Font name="Montserrat Light" size="20.0" />
+                    </font>
+                </Button>
+                <Button fx:id="parceles" mnemonicParsing="false" onAction="#canviarEscenaAction" prefHeight="40.0" prefWidth="152.0" style="-fx-text-fill: white;" styleClass="buttonNavbar" text="Parceles">
+                    <font>
+                        <Font name="Montserrat Light" size="20.0" />
+                    </font>
+                </Button>
+                <Button fx:id="arribades" mnemonicParsing="false" onAction="#canviarEscenaAction" prefHeight="40.0" prefWidth="152.0" styleClass="buttonNavbar" text="Arribades/Sortides">
+                    <font>
+                        <Font name="Montserrat Light" size="20.0" />
+                    </font>
+                </Button>
+            </children>
+        </HBox>
+    </top>
+   <right>
+      <VBox prefHeight="726.0" prefWidth="220.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Aliments">
+               <font>
+                  <Font name="Montserrat Light" size="20.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tableAliments" prefHeight="302.0" prefWidth="220.0">
+              <columns>
+                <TableColumn fx:id="idAlimentColumn" prefWidth="55.0" text="Id" />
+                <TableColumn fx:id="nomAlimentColumn" prefWidth="165.0" text="Nom" />
+              </columns>
+            </TableView>
+            <Pane prefHeight="124.0" prefWidth="220.0">
+               <children>
+                  <TextField fx:id="nouAlimentText" layoutX="25.0" layoutY="26.0" promptText="Nom Aliment" />
+                  <Button fx:id="noulimentButton" layoutX="61.0" layoutY="75.0" mnemonicParsing="false" onAction="#nouAliment" styleClass="buttonAgregar" text="Nou Aliment" />
+               </children>
+            </Pane>
+            <Pane prefHeight="124.0" prefWidth="220.0">
+               <children>
+                  <TextField fx:id="eliminaText" layoutX="25.0" layoutY="26.0" promptText="ID Aliment" />
+                  <Button fx:id="eliminaButton" layoutX="50.0" layoutY="74.0" mnemonicParsing="false" onAction="#eliminaAliment" styleClass="buttonEliminar" text="Elimina Aliment" />
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+   </right>
+   <left>
+      <VBox prefHeight="726.0" prefWidth="207.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="262.0" prefWidth="207.0">
+               <children>
+                  <TextField fx:id="textNomParcela" layoutX="18.0" layoutY="50.0" promptText="Nom Parcela" />
+                  <Label layoutX="7.0" layoutY="14.0" text="Crear Nova Parcela">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="textHectareas" layoutX="18.0" layoutY="83.0" promptText="Hectareas" />
+                  <TextField fx:id="textZonesOmbra" layoutX="18.0" layoutY="120.0" promptText="Num Zones Ombra" />
+                  <CheckBox fx:id="checkAiguaNatural" layoutX="18.0" layoutY="155.0" mnemonicParsing="false" text="Aigua Natural" />
+                  <Button fx:id="novaParcela" layoutX="54.0" layoutY="198.0" mnemonicParsing="false" onAction="#novaParcela" styleClass="buttonAgregar" text="Nova Parcela" />
+               </children>
+            </Pane>
+            <Pane prefHeight="124.0" prefWidth="220.0">
+               <children>
+                  <TextField fx:id="eliminaParcelaText" layoutX="25.0" layoutY="26.0" promptText="ID Parcela" />
+                  <Button fx:id="eliminaParcelaButton" layoutX="50.0" layoutY="74.0" mnemonicParsing="false" onAction="#eliminaParcela" styleClass="buttonEliminar" text="Elimina Parcela" />
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="tableParceles" prefHeight="326.0" prefWidth="853.0">
+              <columns>
+                <TableColumn fx:id="idColumn" prefWidth="50.0" text="Id" />
+                <TableColumn fx:id="nomColumn" prefWidth="150.0" text="Nom" />
+                  <TableColumn fx:id="hetareasColumn" prefWidth="150.0" text="Hectareas" />
+                  <TableColumn fx:id="zonesOmbresColumn" prefWidth="150.0" text="Zones Ombres" />
+                  <TableColumn fx:id="aiguaNaturalColumn" prefWidth="150.0" text="Aigua Natural" />
+              </columns>
+            </TableView>
+            <Pane prefHeight="215.0" prefWidth="853.0">
+               <children>
+                  <TextField fx:id="buscarParcela" layoutX="32.0" layoutY="26.0" onKeyTyped="#buscarParcelaUpdate" promptText="ID Parcela" />
+                  <TextField fx:id="actualitzaParcelaNom" layoutX="32.0" layoutY="108.0" />
+                  <TextField fx:id="textHectareasUpadate" layoutX="241.0" layoutY="108.0" />
+                  <TextField fx:id="zonaOmbresUpdate" layoutX="460.0" layoutY="108.0" />
+                  <CheckBox fx:id="checkUpdateAigua" layoutX="687.0" layoutY="112.0" mnemonicParsing="false" text="Aigua Natural" />
+                  <Label layoutX="102.0" layoutY="81.0" text="Nom" />
+                  <Label layoutX="293.0" layoutY="81.0" text="Hectareas" />
+                  <Label layoutX="501.0" layoutY="81.0" text="Zona Ombres" />
+                  <Button fx:id="updateParcela" layoutX="35.0" layoutY="153.0" mnemonicParsing="false" onAction="#updateParcela" styleClass="buttonAgregar" text="Actualitza Parcela" />
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
